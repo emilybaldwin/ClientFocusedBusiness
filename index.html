@@ -1,0 +1,221 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TimelineLite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
+    <script src="https://kit.fontawesome.com/9798f89b2d.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+
+</head>
+
+<body onload="setStartPage();">
+
+    <audio controls style="display:none" id="waterSound">
+        <source src="waterSound.mp3" type="audio/mp3">
+    </audio>
+
+    <div class="header">
+        <a>The Apprentices</a>
+    </div>
+    <div id="emitter"></div>
+    <div class="container">
+
+        <!-- Make opening start screen - slides open to show questions click to start --> 
+        <div class="row" id="openingScreenRow">
+            <div class="col-md-12 col-sm-12">
+                <div class="box openingScreen">
+                    <img src="trixie.png" height="500" alt="trixie" />
+
+                    <!-- Opening screen title -->
+                    <div class="openingCenter">                    
+                        <div class="openingText">
+                            <h1>Welcome to the Feedback Survey!</h1>
+                        </div>
+
+                        <!-- Entrance Button -->
+                        <div class="openingBtn">
+                            <button id="btnOpen" onclick="openFeedbackApp();" style="width: 100%;">Enter!</button>
+                        </div>
+                    </div>
+
+                    <img src="tyler.png" height="500" alt="tyler" />
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div id="settingsBtns" style="width: 100%; margin: 5px; display: none;">
+                <button id="btnMute" class="questionBtn" onclick="changeSound();" style="float: left"><i id="btnMuteImage" class="fas fa-volume-mute"></i>Mute</button>
+                <button id="btnSize" class="questionBtn" onclick="increaseFontSize();" style="float: right;"><i class="fas fa-search-plus"></i>Size</button>
+            </div>
+
+            <!-- Question 1 - Scale / Water -->
+            <div class="col-md-12 col-sm-12" id="Question_1" style="display:none;">
+
+                <div class="box" id="wrapper" style="width: 100%;">
+                    <h2 style="text-align: center;">Pouring Water</h2>
+
+                    <div class="btns">
+                        <button id="waterBtn" name="waterBtn" class="btn-default" style="width: 48%;" onmousedown="pour('Water');" onmouseup="stop('Water');">Pour Water</button>
+                        <button id="waterResetBtn" name="waterBtn" class="btn-default" style="width: 48%;" onclick="reset('Water');">Reset</button>
+                    </div>
+
+                    <div class="measurements">
+                        <div class="measure" style="z-index: 2; position: absolute;">
+                            <div class="measurementNumber">4</div>
+                            <div class="measurementNumber">3</div>
+                            <div class="measurementNumber">2</div>
+                            <div class="measurementNumber">1</div>
+                        </div>
+
+                        <div class="bar" id="gradientbar" style="z-index: 1; position: absolute;">
+                        </div>
+
+                    </div>
+
+                    <div id="banner" class="pot" style="margin:auto;">
+
+                        <div id="pourWater"></div>
+                        <div id="fillWater" style="visibility: hidden;">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
+                            <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
+                c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
+                c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
+
+                    </svg>
+
+                            <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                            <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
+                c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
+                c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
+                    </svg>-->
+                            <div class="fish">
+                                <div class="fin"></div>
+                                <div class="face-fin"></div>
+                            </div>
+                            <div class="bubble"></div>
+                            <div class="bubble bbl-2"></div>
+                            <div class="bubble bbl-3"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Question 2 - Scale / Paint -->
+            <div class="col-md-12 col-sm-12" id="Question_2" style="display: none;">
+                <div class="box" style="width:100%">
+
+                    <h2 style="text-align: center;">Pouring Paint</h2>
+
+                    <div style="margin:10px;">
+                        <h4 style="text-align: center;">Choose your paint color:</h4>
+
+                        <div class="paintColoursDiv">
+                            <div class="paintColour" style="background-color: red;" onclick="paintSelected(this, 'red');">
+                            </div>
+
+                            <div class="paintColour" style="background-color: deepskyblue;" onclick="paintSelected(this, 'deepskyblue');">
+                            </div>
+
+                            <div class="paintColour" style="background-color: deeppink;" onclick="paintSelected(this, 'deeppink');">
+                            </div>
+
+                            <div class="paintColour" style="background-color: greenyellow;" onclick="paintSelected(this, 'greenyellow');">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="btns">
+                        <button id="paintBtn" name="paintBtn" class="btn-default" style="width: 48%;" onmousedown="pour('Paint');" onmouseup="stop('Paint');">Pour Paint</button>
+                        <button id="paintResetBtn" name="paintResetBtn" class="btn-default" style="width: 48%;" onclick="reset('Paint');">Reset</button>
+                    </div>
+
+                    <div id="paintBanner" class="pot paintPot" style="margin:auto;">
+                        <div class="measure divOverlay" style="z-index: 1;">
+                            <div class="measurementNumber">4</div>
+                            <div class="measurementNumber">3</div>
+                            <div class="measurementNumber">2</div>
+                            <div class="measurementNumber">1</div>
+                        </div>
+
+                        <div id="pourPaint"></div>
+                        <div id="fillPaint" style="visibility: hidden; z-index: 0;" class="divOverlay">
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
+                            <path class="paintWave" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
+                c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
+                c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
+                    </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question 3 - Smiley Faces -->
+            <div class="col-md-12 col-sm-12" id="Question_3" style="display: none;">
+                <div class="box" style="width:100%">
+
+                    <h2 style="text-align: center;">Smiley Faces</h2>
+
+                    <div class="facesOuterContainer">
+                        <div class="facesContainer">
+                            <div id="veryHappy" class="faceOne">
+                                <a class="smileyFace" onclick="selectedFace('veryHappy');">&#x1F601;</a>
+                            </div>
+                        </div>
+                        <div class="facesContainer">
+                            <div id="happy" class="faceTwo">
+                                <a class="smileyFace" onclick="selectedFace('happy');">&#x1F60A;</a>
+                            </div>
+                        </div>
+                        <div class="facesContainer">
+                            <div id="straightFace" class="faceThree">
+                                <a class="smileyFace" onclick="selectedFace('straightFace');">&#x1F610;</a>
+                            </div>
+                        </div>
+                        <div class="facesContainer">
+                            <div id="sad" class="faceFour">
+                                <a class="smileyFace" onclick="selectedFace('sad');">&#x1F614;</a>
+                            </div>
+                        </div>
+                        <div class="facesContainer">
+                            <div id="verySad" class="faceFive">
+                                <a class="smileyFace" onclick="selectedFace('verySad');">&#x1F625;</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="measurements">
+                        <div class="measure" style="z-index: 2; position: absolute; display: flex; width: 90%;">
+                            <div class="measurementNumber" style="margin: auto;">5</div>
+                            <div class="measurementNumber" style="margin: auto;">4</div>
+                            <div class="measurementNumber" style="margin: auto;">3</div>
+                            <div class="measurementNumber" style="margin: auto;">2</div>
+                            <div class="measurementNumber" style="margin: auto;">1</div>
+                        </div>
+                    </div>
+
+                    <div class="bar" id="gradientBarHorizontal" style="z-index: 1; width: 100%; height: 30px;">
+                    </div>
+                </div>
+            </div>
+
+            <!-- End of Questions -->
+
+
+            <!-- Moving Questions Buttons -->
+            <div id="moveQuestionBtns" style="width: 100%; margin: 5px; display: none;">
+                <button id="btnBack" class="questionBtn" onclick="movePageBack();" style="float: left"><i class="fas fa-arrow-left"></i>Back</button>
+                <button id="btnNext" class="questionBtn" onclick="movePageForward();" style="float: right;"><i class="fas fa-arrow-right"></i>Next</button>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

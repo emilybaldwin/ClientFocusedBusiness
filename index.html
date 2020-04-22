@@ -1,6 +1,8 @@
 <html>
+
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/fishtank.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -8,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
     <script src="https://kit.fontawesome.com/9798f89b2d.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="./scripts/fishtank.js"></script>
 
 </head>
 
@@ -21,16 +24,16 @@
         <a>The Apprentices</a>
     </div>
     <div id="emitter"></div>
-    <div class="container">
+    <div class="container-fluid">
 
-        <!-- Make opening start screen - slides open to show questions click to start --> 
+        <!-- Make opening start screen - slides open to show questions click to start -->
         <div class="row" id="openingScreenRow">
             <div class="col-md-12 col-sm-12">
                 <div class="box openingScreen">
                     <img src="trixie.png" height="500" alt="trixie" />
 
                     <!-- Opening screen title -->
-                    <div class="openingCenter">                    
+                    <div class="openingCenter">
                         <div class="openingText">
                             <h1>Welcome to the Feedback Survey!</h1>
                         </div>
@@ -56,7 +59,7 @@
             <!-- Question 1 - Scale / Water -->
             <div class="col-md-12 col-sm-12" id="Question_1" style="display:none;">
 
-                <div class="box" id="wrapper" style="width: 100%;">
+                <div class="box" id="wrapper">
                     <h2 style="text-align: center;">Pouring Water</h2>
 
                     <div class="btns">
@@ -108,7 +111,7 @@
 
             <!-- Question 2 - Scale / Paint -->
             <div class="col-md-12 col-sm-12" id="Question_2" style="display: none;">
-                <div class="box" style="width:100%">
+                <div class="box">
 
                     <h2 style="text-align: center;">Pouring Paint</h2>
 
@@ -158,7 +161,7 @@
 
             <!-- Question 3 - Smiley Faces -->
             <div class="col-md-12 col-sm-12" id="Question_3" style="display: none;">
-                <div class="box" style="width:100%">
+                <div class="box">
 
                     <h2 style="text-align: center;">Smiley Faces</h2>
 
@@ -205,6 +208,31 @@
                 </div>
             </div>
 
+            <div class="col-md-12 col-sm-12" id="Question_4" style="display: none;">
+                <div class="box">
+                    <div class="col-md-12 text-center">
+                        <h1>How did your appointment make you feel?</h1>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-6 offset-md-1" id="tank1">
+                            <div class="col-md-10 col-sm-10" id="tank">
+                                <img src="./images/tank.svg" class="border border-dark tank" />
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="list-group text-center">
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-primary" onclick="addFish();">Happy</a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-secondary" onclick="addFish();">Cared For</a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-success" onclick="addFish();">Positive</a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-danger" onclick="addFish();">Scared</a>
+                                <a href="#" class="list-group-item list-group-item-action list-group-item-warning" onclick="addFish();">Sad</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
             <!-- End of Questions -->
 
 
@@ -218,4 +246,5 @@
 
 
 </body>
+
 </html>

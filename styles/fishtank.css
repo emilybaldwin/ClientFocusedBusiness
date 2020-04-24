@@ -1,0 +1,117 @@
+#tank .swimmingFish {
+    animation: swim 30s infinite;
+    position: absolute;
+    width: 100px;
+    top: 0;
+    left: 0;
+}
+
+@keyframes swim {
+    from {}
+    20% {
+        left: 20px;
+        transform: scaleX(1);
+        z-index: 90;
+    }
+    20.5% {
+        transform: scaleX(-1);
+        z-index: 10;
+        left: 0%;
+    }
+    21% {
+        left: 12%;
+    }
+    42% {
+        left: 75%;
+    }
+    50% {
+        z-index: 28;
+        top: 130px;
+        left: 80%;
+        transform: scaleX(-1);
+    }
+    50.5% {
+        transform: scaleX(1);
+        z-index: 100;
+        left: 80%;
+        top: 160px;
+    }
+    51% {
+        left: 76%;
+        z-index: 150;
+    }
+    60% {
+        left: 47%;
+        z-index: 150;
+    }
+    64% {
+        left: 30%;
+        z-index: 150;
+    }
+    66% {
+        left: 12%;
+        z-index: 150;
+    }
+    69% {
+        left: 5%;
+        z-index: 150;
+    }
+    70% {
+        top: 105px;
+        left: 5%;
+        transform: scaleX(1);
+        z-index: 90;
+    }
+    70.5% {
+        transform: scaleX(-1);
+        z-index: 10;
+        left: 5%;
+    }
+    71% {
+        left: 8%;
+    }
+    80% {
+        left: 80%;
+    }
+    81% {
+        left: 80%;
+        top: 70px;
+    }
+    82% {
+        left: 80%;
+        transform: scaleX(-1);
+    }
+    82.5% {
+        transform: scaleX(1);
+        top: 70px;
+        left: 87%;
+    }
+    84% {
+        top: 105px;
+        left: 79%;
+        z-index: 28;
+    }
+    88% {
+        top: 105px;
+        left: 63%;
+        z-index: 28;
+    }
+    to {
+        left: 30%;
+    }
+}
+
+.tank {
+    /* background-image: url(../images/tank.svg);
+    background-repeat: no-repeat;
+    background-position: center center; */
+    height: 60vh;
+}
+
+.centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}

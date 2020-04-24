@@ -1,6 +1,7 @@
 
 // Global Variables
 var _currentPage;
+var _maxQuestions = 4;
 var _playSound = true;
 
 // JS For Question Moving
@@ -20,33 +21,46 @@ function openFeedbackApp() {
 }
 
 function setStartPage() {
-   _currentPage = 1;
+   this._currentPage = 1;
 }
 
 function movePageBack() {
 
-    var nextPageNum = _currentPage - 1;
-
     // hide current question div
     $('#Question_' + _currentPage).hide(100);
 
-    // show next question div
-    $('#Question_' + nextPageNum).show(100);
+    // decrement the current page number
+    this._currentPage--;
 
-    _currentPage = nextPageNum;
+    if (this._currentPage < 1) {
+        $('#openingScreenRow').show(100);
+        $('#settingsBtns').hide(100);
+        $('#moveQuestionBtns').hide(100);
+    } else {
+    // show next question div
+        $('#Question_' + this._currentPage).show(100);
+    }
+
+    // show the hidden next button
+    $('#btnNext:hidden').show(100);
+
 }
 
 function movePageForward() {
 
-    var nextPageNum = _currentPage + 1;
-
     // hide current question div
-    $('#Question_' + _currentPage).hide(100);
+    $('#Question_' + this._currentPage).hide(100);
+
+    // increment the current page number
+    this._currentPage++
 
     // show next question div
-    $('#Question_' + nextPageNum).show(100);
+    $('#Question_' + this._currentPage).show(100);
 
-    _currentPage = nextPageNum;
+    if (this._currentPage >= this._maxQuestions) {
+        // remove the next button on the last question.
+        $('#btnNext').hide(100);
+    }
 }
 
 // Increase font size

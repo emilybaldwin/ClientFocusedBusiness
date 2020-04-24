@@ -1,0 +1,102 @@
+﻿@import url('https://fonts.googleapis.com/css?family=Concert+One&display=swap');
+
+/*html, body {
+    height: 100%;
+}*/
+
+body {
+    background: radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%);
+    overflow: hidden;
+}
+
+.q {
+    font: 50px 'Concert One';
+    text-align: center;
+}
+
+.qa {
+    font: 50px 'Concert One';
+    line-height: 250px;
+    text-align: center;
+}
+
+.splatbox {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+}
+
+
+.splatbox-1 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat1.svg");
+}
+
+.splatbox-2 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat2.svg")
+}
+
+.splatbox-3 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat3.svg")
+}
+
+.splatbox-4 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat4.svg")
+}
+
+.splatbox-5 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat5.svg")
+}
+
+.splatbox-6 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat6.svg")
+}
+
+.splatbox-7 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat7.svg")
+}
+
+.splatbox-8 {
+    width: 300px;
+    height: 300px;
+    background-size: 300px 300px;
+    background-repeat: no-repeat;
+    text-align: center;
+    background-image: url("../images/splat8.svg")
+}

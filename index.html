@@ -3,6 +3,7 @@
 <head>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles/fishtank.css">
+    <link rel="stylesheet" href="styles/paintsplat.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -11,6 +12,7 @@
     <script src="https://kit.fontawesome.com/9798f89b2d.js"></script>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="./scripts/fishtank.js"></script>
+    <script type="text/javascript" src="./scripts/paintsplat.js"></script>
 
 </head>
 
@@ -89,13 +91,15 @@
                 c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
                 c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
 
+
+
                     </svg>
 
                             <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
-                            <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
-                c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
-                c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
-                    </svg>-->
+                                <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
+                    c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
+                    c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
+                        </svg>-->
                             <div class="fish">
                                 <div class="fin"></div>
                                 <div class="face-fin"></div>
@@ -153,6 +157,7 @@
                             <path class="paintWave" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
                 c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
                 c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
+
                     </svg>
                         </div>
                     </div>
@@ -233,9 +238,31 @@
 
             </div>
 
+            <div class="col-md-12 col-sm-12" id="Question_5" style="display: none;">
+                <div class="box">
+                    <div class="col-md-12 text-center">
+                        <h1>When I'm receiving care I feel ...</h1>
+                    </div>
+                    <div class="row align-items-center">
+                        <div class="col-md-4 splatbox"><p id="a1" class="qa splatbox" onclick="splatter(event);">Alone</p></div>
+                        <div class="col-md-4 splatbox"><p id="a2" class="qa splatbox" onclick="splatter(event);">Happy</p></div>
+                        <div class="col-md-4 splatbox"><p id="a3" class="qa splatbox" onclick="splatter(event);">Sad</p></div>
+                    </div><br /><br />
+                    <div class="row align-items-center">
+                        <div class="col-md-4 splatbox"><p id="a4" class="qa splatbox" onclick="splatter(event);">Scared</p></div>
+                        <div class="col-md-4 splatbox"><p id="a5" class="qa splatbox" onclick="splatter(event);">Safe</p></div>
+                        <div class="col-md-4 splatbox"><p id="a6" class="qa splatbox" onclick="splatter(event);">Listened to</p></div>
+                    </div><br /><br />
+                    <div class="row align-items-center">
+                        <div class="col-md-4 splatbox"><p id="a7" class="qa splatbox" onclick="splatter(event);">Positive</p></div>
+                        <div class="col-md-4 splatbox"><p id="a8" class="qa splatbox" onclick="splatter(event);">Cared for</p></div>
+                        <div class="col-md-4 splatbox"><p id="a9" class="qa splatbox" onclick="splatter(event);">Negative</p></div>
+                    </div>
+                </div>
+
+            </div>
+
             <!-- End of Questions -->
-
-
             <!-- Moving Questions Buttons -->
             <div id="moveQuestionBtns" style="width: 100%; margin: 5px; display: none;">
                 <button id="btnBack" class="questionBtn" onclick="movePageBack();" style="float: left"><i class="fas fa-arrow-left"></i>Back</button>

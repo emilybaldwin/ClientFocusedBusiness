@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="styles/fishtank.css">
     <link rel="stylesheet" href="styles/paintsplat.css">
+    <link rel="stylesheet" href="styles/airballoon.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -13,6 +14,7 @@
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="./scripts/fishtank.js"></script>
     <script type="text/javascript" src="./scripts/paintsplat.js"></script>
+    <script type="text/javascript" src="./scripts/airballoon.js"></script>
 
 </head>
 
@@ -261,6 +263,29 @@
                 </div>
 
             </div>
+
+            <!-- Hot Ait Balloon Question -->
+            <div class='text-container'>
+                <h2> Complete the sentence </h2>
+                <p> My appointment made me feel...</p>
+            </div>    
+            <div class='balloon-container' onclick="balloonAnimation(event)">
+                <div class='balloon-one'>
+                    <!-- <p class="balloonText"> HAPPY </p> -->
+                    <span id="span1"></span>
+                    <span id="span2"></span>
+                </div>
+                <div class='balloon-one' onclick="balloonAnimation(event)">
+                        <!-- <p class="balloonText"> SAD </p> -->
+                    <span id="span1"></span>
+                    <span id="span2"></span>
+                </div>
+                <div class='balloon-one' onclick="balloonAnimation(event)">
+                        <!-- <p class="balloonText"> CARED FOR </p> -->
+                    <span id="span1"></span>
+                    <span id="span2"></span>
+                </div>
+            </div> 
 
             <!-- End of Questions -->
             <!-- Moving Questions Buttons -->

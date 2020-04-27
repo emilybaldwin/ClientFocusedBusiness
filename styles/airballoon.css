@@ -1,0 +1,91 @@
+.balloon-container {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -100px;
+}
+
+.text-container {
+position: fixed;
+top: 0%;
+left: 30%;
+margin-top: -50px;
+margin-left: -100px;
+}
+
+.balloon-one {
+display: inline-block;
+position: relative;
+top: 200px;
+min-height: 16em;
+min-width: 16em;
+border-radius:150%;
+border-bottom-left-radius: 425%;
+border-bottom-right-radius: 425%;
+border-top-left-radius: 425%;
+border-top-radius: 220%;
+background: linear-gradient(5deg, #00aa88,#004589);
+transform: rotate(135deg);
+z-index: 2;
+}
+
+.moveBalloon {
+animation: mymove 5s infinite;
+}
+
+.balloonText {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: rotate(225deg);
+}
+
+#span1 {
+position: relative;
+top: -5px;
+left: 210px;
+display: inline-block;
+min-height: 3em;
+min-width: 3em;
+border-radius:50%;
+border-bottom-left-radius: 52%;
+border-bottom-right-radius: 72%;
+border-top-left-radius: 72%;
+border-top-right-radius: 420%;
+border: 2px solid #D2691E;
+border-top-color: transparent;
+border-right-color:transparent;
+transform: rotate(180deg);
+z-index: -8;
+}
+
+#span2 {
+position: relative;
+bottom: 60px;
+top: -45px;
+left: 185px;
+right: 450px;
+display: inline-block;
+height: 40px;
+width: 60px;
+border: 3px;
+background-color: #005688;
+transform: rotate(45deg);
+}
+
+h2 {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 70px;
+}
+
+p {
+  font-family: Arial, Helvetica, sans-serif
+}
+
+@keyframes mymove {
+from {top: 200px;}
+to {top: 0px;}
+}

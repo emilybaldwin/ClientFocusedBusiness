@@ -1,7 +1,7 @@
 
 // Global Variables
 var _currentPage;
-var _maxQuestions = 5;
+var _maxQuestions = 7;
 var _playSound = true;
 
 // JS For Question Moving

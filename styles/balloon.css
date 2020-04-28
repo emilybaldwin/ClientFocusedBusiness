@@ -1,0 +1,79 @@
+.rich {
+    margin: 20px;
+    text-align: center;
+    font-family: 'Wendy One', sans-serif;
+    color: black;
+}
+
+.rich p {
+    margin-top: 50px;
+    vertical-align: center;
+    text-align: center;
+    font-size: xx-large;
+}
+
+.jumbotron {
+    background: #ADD8E6;
+    margin-bottom: 0;
+}
+
+#jumbotron1 {
+    height: 400px;
+}
+
+#jumbotron2 {
+    height: 200px;
+}
+
+.rich .balloon {
+    display: inline-block;
+    width: 120px;
+    height: 145px;
+    background: hsl(215, 50%, 65%);
+    border-radius: 80%;
+    position: relative;
+    box-shadow: inset -10px -10px 0 rgba(0, 0, 0, 0.07);
+    margin: 20px 30px;
+    transition: transform 0.5s ease;
+    z-index: 10;
+    animation: balloons 4s ease-in-out infinite;
+    transform-origin: bottom center;
+}
+
+@keyframes balloons {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(-25px) rotate(4deg);
+    }
+}
+
+.rich .balloon:after {
+    display: inline-block;
+    top: 140px;
+    position: absolute;
+    height: 150px;
+    width: 1px;
+    margin: 0 auto;
+    content: "";
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.rich .balloon:nth-child(2) {
+    background: hsl(355, 88%, 42%);
+    animation-duration: 3.5s;
+}
+
+.rich .balloon:nth-child(2):before {
+    color: hsl(350, 88%, 42%);
+}
+
+.rich .balloon:nth-child(3) {
+    background: hsl(135, 100%, 64%);
+    animation-duration: 3s;
+}
+
+.rich .balloon:nth-child(3):before {
+    color: hsl(130, 100%, 64%);
+}

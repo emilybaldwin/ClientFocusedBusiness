@@ -5,8 +5,10 @@
     <link rel="stylesheet" href="styles/fishtank.css">
     <link rel="stylesheet" href="styles/paintsplat.css">
     <link rel="stylesheet" href="styles/airballoon.css">
+    <link rel="stylesheet" href="styles/balloon.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Wendy+One' rel='stylesheet' type='text/css'>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.17.0/TimelineLite.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/mathusummut/confetti.js/confetti.min.js"></script>
@@ -15,6 +17,7 @@
     <script type="text/javascript" src="./scripts/fishtank.js"></script>
     <script type="text/javascript" src="./scripts/paintsplat.js"></script>
     <script type="text/javascript" src="./scripts/airballoon.js"></script>
+    <script type="text/javascript" src="./scripts/balloon.js"></script>
 
 </head>
 
@@ -265,27 +268,54 @@
             </div>
 
             <!-- Hot Ait Balloon Question -->
-            <div class='text-container'>
-                <h2> Complete the sentence </h2>
-                <p> My appointment made me feel...</p>
-            </div>    
-            <div class='balloon-container' onclick="balloonAnimation(event)">
-                <div class='balloon-one'>
-                    <!-- <p class="balloonText"> HAPPY </p> -->
-                    <span id="span1"></span>
-                    <span id="span2"></span>
+            <div class="col-md-12 col-sm-12" id="Question_6" style="display: none;">
+                <div class="box lottie">
+                    <div class='container'>
+                        <h2> Complete the sentence </h2>
+                        <p> My appointment made me feel...</p>
+                    </div>
+                    <div class='balloon-container' onclick="balloonAnimation(event)">
+                        <div class='balloon-one'>
+                            <h3 class="balloonText happy"> HAPPY </h3>
+                            <span id="span1"></span>
+                            <span id="span2"></span>
+                        </div>
+                        <div class='balloon-one' onclick="balloonAnimation(event)">
+                            <h3 class="balloonText sad"> SAD </h3>
+                            <span id="span1"></span>
+                            <span id="span2"></span>
+                        </div>
+                        <div class='balloon-one' onclick="balloonAnimation(event)">
+                            <h3 class="balloonText cared-for"> CARED FOR </h3>
+                            <span id="span1"></span>
+                            <span id="span2"></span>
+                        </div>
+                    </div>
                 </div>
-                <div class='balloon-one' onclick="balloonAnimation(event)">
-                        <!-- <p class="balloonText"> SAD </p> -->
-                    <span id="span1"></span>
-                    <span id="span2"></span>
+            </div>
+
+            <!-- Yes/No question-->
+            <div class="col-md-12 col-sm-12" id="Question_7" style="display: none;">
+                <div class="rich box">
+                    <div class="jumbotron" id="jumbotron1">
+                        <h1> DID YOU FEEL LISTENED TO? </h1>
+                        <h5> Pop the balloon to keep your answer </h5>
+                        <div class="balloon" id="No">
+                            <p>YES</p>
+                        </div>
+                        <div class="balloon" id="Yes">
+                            <p>NO</p>
+                        </div>
+                    </div>
+                    <div class="jumbotron" id="jumbotron2">
+                        <button type="button" class="btn btn-primary btn-lg" id="reset">RESET</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="submit">SUBMIT</button>
+                        <div>
+                            <h1 id="answer"></h1>
+                        </div>
+                    </div>
                 </div>
-                <div class='balloon-one' onclick="balloonAnimation(event)">
-                        <!-- <p class="balloonText"> CARED FOR </p> -->
-                    <span id="span1"></span>
-                    <span id="span2"></span>
-                </div>
-            </div> 
+            </div>
 
             <!-- End of Questions -->
             <!-- Moving Questions Buttons -->

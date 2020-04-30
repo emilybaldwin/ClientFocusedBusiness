@@ -7,7 +7,7 @@ var _playSound = true;
 // JS For Question Moving
 
 function openFeedbackApp() {
-
+;
     // Hide opening screen
     $('#openingScreenRow').hide(100);
 
@@ -67,7 +67,7 @@ function movePageForward() {
 var fontSize = 1;
 
 function increaseFontSize() {
-    debugger;
+    ;
     var allH2Elements = document.getElementsByTagName('h2');
     var allH1Elements = document.getElementsByTagName('h1');
     var body = document.getElementsByTagName('body');
@@ -137,22 +137,100 @@ function changeSound() {
 
     if (_playSound == true) {
         _playSound = false;
-        soundBtn.innerHTML = '<i class="fas fa-volume-up" aria-hidden="true"></i>Sound';
+        soundBtn.innerHTML = '<i class="fas fa-volume-mute" aria-hidden="true"></i>Sound Off';
 
     }
     else {
         _playSound = true;
-        soundBtn.innerHTML = '<i class="fas fa-volume-mute" aria-hidden="true"></i>Mute';
+        soundBtn.innerHTML = '<i class="fas fa-volume-up" aria-hidden="true"></i>Sound On';
     }
 }
 
 // Scale / Pouring
-function pour(itemName) {
+var _pourAmount = 0;
 
+function pourWater() {
+	;
+    var element = document.getElementById('fillWater');
+    var pourelement = document.getElementById('pourWater');
+	
+	var sound = document.getElementById('waterSound');
+	if (sound != undefined && _playSound) {
+		sound.currentTime = 9;
+		sound.play();
+	}
+
+    //var fish = document.getElementsByClassName('fishEmily');
+
+    _pourAmount = _pourAmount + 1;
+
+    if (pourelement != undefined) {
+        pourelement.classList.add('pour');
+        pourelement.style.animationPlayState = "running";  
+    }
+
+    if (element != undefined) {
+        // remove any existing pouring classes
+        if (element.classList != undefined && element.classList.length > 0) {
+            for (var i = 0; i < element.classList.length; i++) {
+                var theclass = element.classList[i];
+                if ((theclass.indexOf("pour") > -1) || (theclass.indexOf("empty") > -1))  {
+                    element.classList.remove(theclass);
+                }
+            }
+        }
+
+        element.classList = 'pour' + _pourAmount;
+        element.style.display = 'block';
+        element.style.visibility = 'initial';
+        element.style.animationPlayState = "running";
+    }
+
+    var $element = $('#fillWater').bind("webkitAnimationEnd oAnimationEnd msAnimationEnd animationend", function (event) {
+
+        if (event.originalEvent.animationName.indexOf("fillAction") > -1) {
+
+            // stop the pouring
+            pourelement.classList.remove('pour');
+
+            setTimeout(function () { confetti.stop() }, 3000);
+        }
+    });
+}
+
+function removeWater() {
+    var element = document.getElementById('fillWater');
+    if (element != undefined) {
+        // remove any existing pouring classes
+        if (element.classList != undefined && element.classList.length > 0) {
+            for (var i = 0; i < element.classList.length; i++) {
+                var theclass = element.classList[i];
+                if ((theclass.indexOf("pour") > -1) || (theclass.indexOf("empty") > -1)) {
+                    element.classList.remove(theclass);
+                }
+            }
+        }
+
+        if (_pourAmount > 0) {
+            element.classList = 'empty' + _pourAmount;
+            element.style.visibility = 'initial';
+            element.style.animationPlayState = "running";
+
+        }
+        else {
+            element.style.display = 'none';
+        }
+
+        _pourAmount = _pourAmount - 1;
+    }
+}
+
+function pour(itemName) {
+ 
     if (itemName == "Water") {
         var sound = document.getElementById('waterSound');
         if (sound != undefined && _playSound) {
-            sound.currentTime = 7;
+            sound.currentTime = 9;
             sound.play();
         }
     }
@@ -188,14 +266,15 @@ function pour(itemName) {
 
     var $element = $('.fill').bind("webkitAnimationEnd oAnimationEnd msAnimationEnd animationend", function (event) {
         console.log("animation name: " + event.originalEvent.animationName)
-        if (event.originalEvent.animationName === "fillRainbowAction") {
+        //if (event.originalEvent.animationName === "fillRainbowAction") {
+        if (event.originalEvent.animationName.indexOf("pour") > -1) {
             console.log('the event happened');
             confetti.start();
 
             setTimeout(function () { confetti.stop() }, 3000);
 
             // once filled stop the sound playing until reset
-            _playSound = false;
+            //_playSound = false;
         }
     });
 }
@@ -233,7 +312,6 @@ function stop(itemName) {
 }
 
 function resetWater() {
-    _playSound = true;
 
     var waterPot = document.getElementById('pour');
     var waterFill = document.getElementById('fill');
@@ -312,4 +390,25 @@ function selectedFace(faceTypeID) {
         face.classList.add('selectedFace');
         face.style.animationPlayState = "running";
     }
+}
+
+function finishedFeedback() {
+	confetti.start(); 
+	
+	if(_playSound){
+	   var sound = document.getElementById('cheerSound');
+        if (sound != undefined && _playSound) {            
+            sound.play();
+        }
+	}
+	
+	setTimeout(function () { 
+		confetti.stop();
+		
+		$('#parentForm').fadeOut();
+		$('#finalScreen').fadeIn();
+		
+	}, 3000);
+	
+
 }

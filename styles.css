@@ -1,5 +1,16 @@
 /* General Styles */
+#banner, #paintBanner {
+    border-radius: 19%;
+    width: 150px;
 
+    height: 260px;
+
+    border: 2px solid black;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    position: relative;
+}
 .header {
     width: 100%;
     height: 70px;
@@ -48,7 +59,7 @@ html {
     text-align: center;
 }
 
-#btnOpen {
+#btnOpen, #btnClose, #btnSubmit {
     margin-top: 10px;
     height: 36px;
     background-color: lightgreen;
@@ -75,7 +86,7 @@ html {
 
 .paintColour {
     height: 50px;
-    width: 20%;
+    width: 24%;
     border: 1px solid black;
     display: inline-block;
     margin: 5px;
@@ -101,11 +112,25 @@ html {
     margin-bottom: 10px;
 }
 
-#banner,
-#paintBanner {
-    border-radius: 50%;
+#newBanner {
+    border-radius: 19%;
     width: 150px;
-    height: 150px;
+
+    height: 260px;
+
+    border: 2px solid black;
+    overflow: hidden;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    position: relative;
+}
+
+#banner, #paintBanner {
+    /*border-radius: 50%;*/
+    border-radius: 19%;
+    width: 150px;
+    /*height: 150px;*/
+    height: 260px;
     /*background: #000;*/
     border: 2px solid black;
     overflow: hidden;
@@ -151,6 +176,8 @@ html {
     animation-duration: 0.50s;
 }
 
+
+
 #banner #waveShape,
 #aquariumBanner #waveShape {
     animation-name: waveRainbowAction;
@@ -172,11 +199,29 @@ html {
     /*fill: #04ACFF;*/
 }
 
+
 .measurementNumber {
-    margin: 2px;
-    margin-top: 10px;
+    margin:2px;
+    /*margin-top: 10px;*/
+    margin-top: 38px;
     margin-left: 7px;
     font-weight: bold;
+}
+
+
+.measurementNumberSmiley {
+	width: 25%;
+	text-align: center;
+	font-weight: bold;
+}
+
+.pourBtn {
+    width: 100%;
+    height: 30px;
+    border: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 
@@ -186,8 +231,11 @@ html {
     0% {
         transform: translateY(-100%);
     }
+
     100% {
         transform: translateY(0);
+        visibility: hidden;
+        display: none;
     }
 }
 
@@ -197,6 +245,108 @@ html {
     }
     100% {
         transform: translateY(-150px);
+    }
+}
+
+
+@keyframes fillAction1 {
+    0% {
+        transform: translateY(250px);
+    }
+
+    100% {
+        transform: translateY(200px);
+    }
+}
+
+@keyframes emptyAction1 {
+    0% {
+        transform: translateY(200px);
+    }
+
+    100% {
+        transform: translateY(250px);
+    }
+}
+
+@keyframes fillAction2 {
+    0% {
+        transform: translateY(200px);
+    }
+
+    100% {
+        transform: translateY(150px);
+    }
+}
+
+@keyframes emptyAction2 {
+    0% {
+        transform: translateY(150px);
+    }
+
+    100% {
+        transform: translateY(200px);
+    }
+}
+
+
+@keyframes fillAction3 {
+    0% {
+        transform: translateY(150px);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+@keyframes emptyAction3 {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(150px);
+    }
+}
+
+@keyframes fillAction4 {
+    0% {
+        transform: translateY(100px);
+    }
+
+    100% {
+        transform: translateY(50px);
+    }
+}
+
+@keyframes emptyAction4 {
+    0% {
+        transform: translateY(50px);
+    }
+
+    100% {
+        transform: translateY(100px);
+    }
+}
+
+@keyframes fillAction5 {
+    0% {
+        transform: translateY(50px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+@keyframes emptyAction5 {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(50px);
     }
 }
 
@@ -255,15 +405,69 @@ html {
     }
 }
 
+
 #gradientbar {
-    height: 150px;
+    /*height: 150px;*/
+    height: 258px;
     width: 30px;
     border: 1px solid black;
-    background-color: red;
-    /* For browsers that do not support gradients */
-    background-image: linear-gradient(green, yellow, orange, red);
+    background-color: red; /* For browsers that do not support gradients */
+    background-image: linear-gradient(green,yellow, orange, red);
 }
 
+.pour1 {
+    animation-name: fillAction1;
+}
+
+.pour2 {
+    animation-name: fillAction2;
+}
+
+.pour3 {
+    animation-name: fillAction3;
+}
+
+.pour4 {
+    animation-name: fillAction4;
+}
+
+.pour5 {
+    animation-name: fillAction5;
+}
+
+.pour1, .pour2, .pour3, .pour4, .pour5 {
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.2, .6, .8, .4);
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.empty1, .empty2, .empty3, .empty4, .empty5 {
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(.2, .6, .8, .4);
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+.empty1 {
+    animation-name: emptyAction1;
+}
+
+.empty2 {
+    animation-name: emptyAction2;
+}                   
+                    
+.empty3 {           
+    animation-name: emptyAction3;
+}                   
+                    
+.empty4 {           
+    animation-name: emptyAction4;
+}                   
+                    
+.empty5 {           
+    animation-name: emptyAction5;
+}
 
 /* Pouring End */
 
@@ -332,6 +536,8 @@ html {
 
 .smileyFace {
     font-size: 70px;
+	text-align: center;
+	width: 100%;
 }
 
 .facesOuterContainer {
@@ -353,7 +559,10 @@ div.facesContainer {
 div.facesContainer div {
     position: absolute;
     line-height: 30px;
-    padding-left: 40px;
+    /* padding-left: 40px; */
+	margin: auto;
+	text-align: center;
+	width: 100%;
     animation: jump 0.5s 3 alternate;
     -o-animation: jump 0.5s 3 alternate;
     -ms-animation: jump 0.5s 3 alternate;
@@ -401,6 +610,9 @@ div.facesContainer div.faceFive {
     -webkit-animation-delay: 0.4s;
 }
 
+.descriptions {
+	display: flex;
+}
 
 /*Faces Animations*/
 
@@ -900,3 +1112,22 @@ ul {
 }
 
 .loading-button {}
+
+/* Parent Friends Form */
+
+.form-check {
+	width: 100%;
+	font-size: 17px;
+	margin: auto;
+	text-align: center;
+	padding: 22px;
+}
+
+.questionTitle {
+	font-weight: bold;
+}
+
+.input {
+	margin: auto;
+	width: 100%;
+}

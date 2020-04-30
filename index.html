@@ -26,6 +26,10 @@
     <audio controls style="display:none" id="waterSound">
         <source src="waterSound.mp3" type="audio/mp3">
     </audio>
+	
+   <audio controls style="display:none" id="cheerSound">
+        <source src="cheerSound.mp3" type="audio/mp3">
+    </audio>
 
     <div class="header">
         <a>The Apprentices</a>
@@ -59,65 +63,54 @@
         <div class="row">
 
             <div id="settingsBtns" style="width: 100%; margin: 5px; display: none;">
-                <button id="btnMute" class="questionBtn" onclick="changeSound();" style="float: left"><i id="btnMuteImage" class="fas fa-volume-mute"></i>Mute</button>
+                <button id="btnMute" class="questionBtn" onclick="changeSound();" style="float: left"><i id="btnMuteImage" class="fas fa-volume-up"></i>Sound On</button>
                 <button id="btnSize" class="questionBtn" onclick="increaseFontSize();" style="float: right;"><i class="fas fa-search-plus"></i>Size</button>
             </div>
-
-            <!-- Question 1 - Scale / Water -->
+	
+			 <!-- Question 1 - Scale / Water -->
             <div class="col-md-12 col-sm-12" id="Question_1" style="display:none;">
 
-                <div class="box" id="wrapper">
-                    <h2 style="text-align: center;">How would you rate your nurse/doctor?(Out of 4)</h2>
+                <div class="box" id="wrapper" style="width: 100%;">
+                    <h2 style="text-align: center;">How would you rate your nurse/doctor? (Out of 4)</h2>
 
-                    <div class="btns">
-                        <button id="waterBtn" name="waterBtn" class="btn-default" style="width: 48%;" onmousedown="pour('Water');" onmouseup="stop('Water');">Pour Water</button>
-                        <button id="waterResetBtn" name="waterBtn" class="btn-default" style="width: 48%;" onclick="reset('Water');">Reset</button>
-                    </div>
 
-                    <div class="measurements">
-                        <div class="measure" style="z-index: 2; position: absolute;">
-                            <div class="measurementNumber">4</div>
-                            <div class="measurementNumber">3</div>
-                            <div class="measurementNumber">2</div>
-                            <div class="measurementNumber">1</div>
-                        </div>
 
-                        <div class="bar" id="gradientbar" style="z-index: 1; position: absolute;">
-                        </div>
+                    <div class="pourBtns" style="float:right; width: 50%; margin: 35px;">
+
+                        <button id="pourMore" class="btn-default pourBtn" onclick="pourWater();" style="background-color: lightgreen;">Pour<i class="fas fa-arrow-up"></i></button>
+                        <button id="pourLess" class="btn-default pourBtn" onclick="removeWater();" style="background-color: red;">Remove<i class="fas fa-arrow-down"></i></button>
+                        <button id="waterResetBtn" name="waterBtn" class="btn-default pourBtn" style="background-color: yellow;" onclick="reset('Water');">Reset</button>
 
                     </div>
 
                     <div id="banner" class="pot" style="margin:auto;">
 
                         <div id="pourWater"></div>
+                        <div class="measurements">
+                            <div class="measure" style="z-index: 2; position: absolute;">
+  
+                                <div class="measurementNumber">4</div>
+                                <div class="measurementNumber">3</div>
+                                <div class="measurementNumber">2</div>
+                                <div class="measurementNumber">1</div>
+                            </div>
+
+                            <div class="bar" id="gradientbar" style="z-index: 1; position: absolute;">
+                            </div>
+                        </div>
                         <div id="fillWater" style="visibility: hidden;">
                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px" height="500px" viewBox="0 0 500 500" enable-background="new 0 0 500 500" xml:space="preserve">
                             <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
                 c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
                 c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
 
-
-
-                    </svg>
-
-                            <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="300px" height="300px" viewBox="0 0 300 300" enable-background="new 0 0 300 300" xml:space="preserve">
-                                <path fill="#04ACFF" id="waveShape" d="M300,300V2.5c0,0-0.6-0.1-1.1-0.1c0,0-25.5-2.3-40.5-2.4c-15,0-40.6,2.4-40.6,2.4
-                    c-12.3,1.1-30.3,1.8-31.9,1.9c-2-0.1-19.7-0.8-32-1.9c0,0-25.8-2.3-40.8-2.4c-15,0-40.8,2.4-40.8,2.4c-12.3,1.1-30.4,1.8-32,1.9
-                    c-2-0.1-20-0.8-32.2-1.9c0,0-3.1-0.3-8.1-0.7V300H300z" />
-                        </svg>-->
-                            <div class="fish">
-                                <div class="fin"></div>
-                                <div class="face-fin"></div>
-                            </div>
-                            <div class="bubble"></div>
-                            <div class="bubble bbl-2"></div>
-                            <div class="bubble bbl-3"></div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+							</svg>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+	
             <!-- Question 2 - Scale / Paint -->
             <div class="col-md-12 col-sm-12" id="Question_2" style="display: none;">
                 <div class="box">
@@ -144,8 +137,8 @@
                     </div>
 
                     <div class="btns">
-                        <button id="paintBtn" name="paintBtn" class="btn-default" style="width: 48%;" onmousedown="pour('Paint');" onmouseup="stop('Paint');">Pour Paint</button>
-                        <button id="paintResetBtn" name="paintResetBtn" class="btn-default" style="width: 48%;" onclick="reset('Paint');">Reset</button>
+                        <button id="paintBtn" name="paintBtn" class="btn-default" style="width: 49%;" onmousedown="pour('Paint');" onmouseup="stop('Paint');">Pour Paint</button>
+                        <button id="paintResetBtn" name="paintResetBtn" class="btn-default" style="width: 49%;" onclick="reset('Paint');">Reset</button>
                     </div>
 
                     <div id="paintBanner" class="pot paintPot" style="margin:auto;">
@@ -176,40 +169,53 @@
                     <h2 style="text-align: center;">How happy were you with the service?</h2>
 
                     <div class="facesOuterContainer">
-                        <div class="facesContainer">
-                            <div id="veryHappy" class="faceOne">
+                        <div class="facesContainer">							
+                            <div id="veryHappy" class="faceOne">							
                                 <a class="smileyFace" onclick="selectedFace('veryHappy');">&#x1F601;</a>
                             </div>
+							<!-- <p class="smileyDescription">Very Happy</p> -->
                         </div>
                         <div class="facesContainer">
                             <div id="happy" class="faceTwo">
                                 <a class="smileyFace" onclick="selectedFace('happy');">&#x1F60A;</a>
                             </div>
+							<!-- <p class="smileyDescription">Happy<p> -->
                         </div>
                         <div class="facesContainer">
                             <div id="straightFace" class="faceThree">
                                 <a class="smileyFace" onclick="selectedFace('straightFace');">&#x1F610;</a>
                             </div>
+							<!-- <p class="smileyDescription">Ok<p> -->
                         </div>
                         <div class="facesContainer">
                             <div id="sad" class="faceFour">
                                 <a class="smileyFace" onclick="selectedFace('sad');">&#x1F614;</a>
                             </div>
+							<!-- <p class="smileyDescription">Sad<p> -->
                         </div>
                         <div class="facesContainer">
                             <div id="verySad" class="faceFive">
                                 <a class="smileyFace" onclick="selectedFace('verySad');">&#x1F625;</a>
                             </div>
+							<!-- <p class="smileyDescription">Very Sad<p> -->
                         </div>
                     </div>
-
+					
+					<div class="descriptions">
+					          <div class="measurementNumberSmiley" style="margin: auto;">Very Happy</div>
+                            <div class="measurementNumberSmiley" style="margin: auto;">Happy</div>
+                            <div class="measurementNumberSmiley" style="margin: auto;">Ok</div>
+                            <div class="measurementNumberSmiley" style="margin: auto;">Sad</div>
+                            <div class="measurementNumberSmiley" style="margin: auto;">Very Sad</div>
+					</div>
+					
                     <div class="measurements">
-                        <div class="measure" style="z-index: 2; position: absolute; display: flex; width: 90%;">
-                            <div class="measurementNumber" style="margin: auto;">5</div>
-                            <div class="measurementNumber" style="margin: auto;">4</div>
-                            <div class="measurementNumber" style="margin: auto;">3</div>
-                            <div class="measurementNumber" style="margin: auto;">2</div>
-                            <div class="measurementNumber" style="margin: auto;">1</div>
+                        <div class="measure" style="z-index: 2; position: absolute; display: flex; width: 96%;">
+                            <div class="measurementNumberSmiley" style="margin: auto; margin-top: 7px !important;">5</div>
+                            <div class="measurementNumberSmiley" style="margin: auto; margin-top: 7px !important;">4</div>
+                            <div class="measurementNumberSmiley" style="margin: auto; margin-top: 7px !important;">3</div>
+                            <div class="measurementNumberSmiley" style="margin: auto; margin-top: 7px !important;">2</div>
+                            <div class="measurementNumberSmiley" style="margin: auto; margin-top: 7px !important;">1</div>
                         </div>
                     </div>
 
@@ -317,98 +323,193 @@
                 </div>
             </div>
 
-            <!-- Yes/No question-->
+            <!-- Parent Feedback Form -->
             <div class="col-md-12 col-sm-12" id="Question_8" style="display: none;">
                 <div class="box">
-                    <form>
+                    <form id="parentForm">
                         <div class="form-check">
-                            <p>Q1 How likely are you to recommend our ward to friends and family if they need similar care or treatment?</p>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios1">
-                                Extremely Unlikely
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option2" checked>
-                            <label class="form-check-label" for="exampleRadios2">
-                                Unlikely
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios3" value="option3" checked>
-                            <label class="form-check-label" for="exampleRadios3">
-                                Neither likely or unlikely
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios4" value="option4" checked>
-                            <label class="form-check-label" for="exampleRadios4">
-                                Likely
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios5" value="option5" checked>
-                            <label class="form-check-label" for="exampleRadios5">
-                                Extremely Likely
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios6" value="option6" checked>
-                            <label class="form-check-label" for="exampleRadios6">
-                                Dont know
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Q2 What made you feel this way?</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
-                        <div class="form-check">
-                            <p>Q3 Are you male or female?</p>
-                            <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios7" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios7">
-                                Male
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios8" value="option2" checked>
-                            <label class="form-check-label" for="exampleRadios8">
-                                Female
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios9" value="option3" checked>
-                            <label class="form-check-label" for="exampleRadios9">
-                                Prefer not to say
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <p>Q4 How old are you?</p>
-                            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios10" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios10">
-                                Under 10
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios11" value="option2" checked>
-                            <label class="form-check-label" for="exampleRadios11">
-                                10 or older
-                            </label>
+                            <p class="questionTitle">Q1 How likely are you to recommend our ward to friends and family if they need similar care or treatment?</p>
+							<div class="form-group" style="display: inline-flex; width: 75%;">
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Extremely Unlikely
+								</label>
+								</div>
+								
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios2" value="option2" checked>
+								<label class="form-check-label" for="exampleRadios2">
+									Unlikely
+								</label>
+								</div>
+								
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios3" value="option3" checked>
+								<label class="form-check-label" for="exampleRadios3">
+									Neither likely or unlikely
+								</label>
+								</div>
+								
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios4" value="option4" checked>
+								<label class="form-check-label" for="exampleRadios4">
+									Likely
+								</label>
+								</div>
+								
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios5" value="option5" checked>
+								<label class="form-check-label" for="exampleRadios5">
+									Extremely Likely
+								</label>
+								</div>
+								
+								<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios1" id="exampleRadios6" value="option6" checked>
+								<label class="form-check-label" for="exampleRadios6">
+									Dont know
+								</label>
+								</div>
+							</div>
+						</div>
+                        <div style="display: inline-flex; width: 100%;">
+							<div class="form-check">
+								<label for="exampleFormControlTextarea1" class="questionTitle">Q2 What made you feel this way?</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+							</div>
                         </div>
                         <div class="form-check">
-                            <p>Q5 Overall, how was your experience of our service?</p>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios12" value="option1" checked>
-                            <label class="form-check-label" for="exampleRadios12">
-                                Very Good
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios13" value="option2" checked>
-                            <label class="form-check-label" for="exampleRadios13">
-                                Good
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios14" value="option3" checked>
-                            <label class="form-check-label" for="exampleRadios14">
-                                Neither good or poor
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios15" value="option4" checked>
-                            <label class="form-check-label" for="exampleRadios15">
-                                Bad
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios16" value="option5" checked>
-                            <label class="form-check-label" for="exampleRadios16">
-                                Very Bad
-                            </label>
-                            <input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios17" value="option6" checked>
-                            <label class="form-check-label" for="exampleRadios17">
-                                Dont know
-                            </label>
+                            <p class="questionTitle">Q3 Are you male or female?</p>
+							<div class="form-group" style="display: inline-flex; width: 50%;">
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios7" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios7">
+									Male
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios8" value="option2" checked>
+								<label class="form-check-label" for="exampleRadios8">
+									Female
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios2" id="exampleRadios9" value="option3" checked>
+								<label class="form-check-label" for="exampleRadios9">
+									Prefer not to say
+								</label>
+							</div>
+							</div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="form-check" >
+                            <p class="questionTitle">Q4 How old are you?</p>
+							
+							<div class="form-group" style="display: inline-flex; width: 50%;">
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios10" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios10">
+									Under 10
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios4" id="exampleRadios11" value="option2" checked>
+								<label class="form-check-label" for="exampleRadios11">
+									10 or older
+								</label>
+							</div>
+							</div>
+                        </div>
+                        <div class="form-check">
+                            <p class="questionTitle">Q5 Overall, how was your experience of our service?</p>
+							
+							<div class="form-group" style="display: inline-flex; width: 75%;">
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios12" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios12">
+									Very Good
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios13" value="option2" checked>
+								<label class="form-check-label" for="exampleRadios13">
+									Good
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios14" value="option3" checked>
+								<label class="form-check-label" for="exampleRadios14">
+									Neither good or poor
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios15" value="option4" checked>
+								<label class="form-check-label" for="exampleRadios15">
+									Bad
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios16" value="option5" checked>
+								<label class="form-check-label" for="exampleRadios16">
+									Very Bad
+								</label>
+							</div>
+							
+							<div class="input">
+								<input class="form-check-input" type="radio" name="exampleRadios5" id="exampleRadios17" value="option6" checked>
+								<label class="form-check-label" for="exampleRadios17">
+									Dont know
+								</label>
+							</div>
+							</div>
+                        </div>
+						
+						<div class="btnDiv" style="text-align: center;">
+							<button id="btnSubmit" class="btn btn-primary" onclick="finishedFeedback(); return false;">Submit</button>
+						</div>
                     </form>
+					
+				<div id="finalScreen" style="display: none;">
+					<div class="row" id="openingScreenRow">
+						<div class="col-md-12 col-sm-12">
+							<div class=" openingScreen">
+									<img src="trixie.png" height="500" alt="trixie" />
+			
+									<!-- Opening screen title -->
+									<div class="openingCenter">
+										<div class="openingText">
+											<h1>Thank you!</h1>
+											<h3>Thank you for leaving your feedback, and helping to improve our services!</h3>
+										</div>
+			
+										<!-- Entrance Button -->
+										<div class="openingBtn">
+										<form>
+											<button id="btnClose" type="submit" style="width: 100%;">Close</button>
+										</form>
+										</div>
+									</div>
+			
+									<img src="tyler.png" height="500" alt="tyler" />
+									
+							</div>
+						</div>
+
+					</div>							
                 </div>
-            </div>
+				
+				</div>
+			</div>
+				
+            
 
             <!-- End of Questions -->
             <!-- Moving Questions Buttons -->
